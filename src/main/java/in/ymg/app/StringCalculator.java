@@ -1,5 +1,6 @@
 package in.ymg.app;
 
+import in.ymg.app.exceptions.NegativeNumberNotAllowedException;
 import sun.misc.Regexp;
 
 import java.util.regex.Pattern;
@@ -22,7 +23,7 @@ public class StringCalculator {
      */
     private final String CUSTOM_DELIMITER_SPECIFIER = "//";
 
-    public int add(String numbers) {
+    public int add(String numbers) throws NegativeNumberNotAllowedException {
         int sum = 0;
         if (numbers != null && !numbers.isEmpty()) {
             if (numbers.startsWith(CUSTOM_DELIMITER_SPECIFIER)) {
@@ -41,12 +42,16 @@ public class StringCalculator {
         return sum;
     }
 
-    private int parseAndAdd(String numbers, String regEx) {
+    private int parseAndAdd(String numbers, String regEx) throws NegativeNumberNotAllowedException {
         int sum = 0;
         if (numbers != null && !numbers.isEmpty()) {
             String[] numberArray = numbers.split(regEx);
             for (String n : numberArray) {
                 int num = Integer.parseInt(n);
+                if (num < 0) {
+                    String errorMessage = String.format("negatives not allowed %d", num);
+                    throw new NegativeNumberNotAllowedException(errorMessage);
+                }
                 sum += num;
             }
         }
