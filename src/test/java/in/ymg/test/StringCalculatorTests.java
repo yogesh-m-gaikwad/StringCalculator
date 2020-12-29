@@ -36,13 +36,13 @@ public class StringCalculatorTests {
 
     @Test
     @DisplayName("string with two numbers 5,4 returns sum = 9")
-    void twoIntegerStringToReturnSumScenarioOneTest() {
+    void twoIntegersStringToReturnSumScenarioOneTest() {
         assertEquals(9, calculator.add("5,4"), "String '5,4'  should return 9");
     }
 
     @Test
     @DisplayName("string with two numbers 15,27 returns sum = 42")
-    void twoIntegerStringToReturnSumScenarioTwoTest() {
+    void twoIntegersStringToReturnSumScenarioTwoTest() {
         assertEquals(42, calculator.add("15,27"), "String '15,27'  should return 42");
     }
 
@@ -56,5 +56,17 @@ public class StringCalculatorTests {
     @DisplayName("string with unordered numbers 10,2,1,4,5,6,8,7,9,3 returns sum = 55")
     void moreThanTwoUnOrderedIntegersStringToReturnCorrectSumTest() {
         assertEquals(55, calculator.add("10,2,1,4,5,6,8,7,9,3"), "String '10,2,1,4,5,6,8,7,9,3'  should return 55");
+    }
+
+    @Test
+    @DisplayName("string with two numbers having newline in between '5,\\n7' returns correct sum = 12")
+    void twoIntegersWithNewLineInBetweenToReturnSumTest() {
+        assertEquals(12, calculator.add("5\n,7"), "String '5,\\n7'  should return 12");
+    }
+
+    @Test
+    @DisplayName("string with two numbers with multiple newlines in between '5,\\n7\\n9,2' returns correct sum = 23")
+    void moreThanTwoIntegersWithNewLineInBetweenToReturnSumTest() {
+        assertEquals(23, calculator.add("5,\n7\n9,2"), "String '5,\\n7\\n9,2'  should return 23");
     }
 }
