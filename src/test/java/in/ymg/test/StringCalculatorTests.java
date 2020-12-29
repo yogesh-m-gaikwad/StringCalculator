@@ -37,6 +37,6 @@ public class StringCalculatorTests {
     @Test
     @DisplayName("string with two numbers 15,27 returns sum = 42")
     void twoIntegerStringToReturnSumScenarioTwoTest() {
-        assertEquals(9, calculator.add("15,27"), "String '15,27'  should return 42");
+        assertEquals(42, calculator.add("15,27"), "String '15,27'  should return 42");
     }
 }

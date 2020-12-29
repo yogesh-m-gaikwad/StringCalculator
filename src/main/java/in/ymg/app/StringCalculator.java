@@ -13,6 +13,15 @@ package in.ymg.app;
  */
 public class StringCalculator {
     public int add(String numbers){
-        return 0;
+        int sum = 0;
+        if( numbers != null && !numbers.isEmpty()) {
+            String[] numberArray = numbers.split(",");
+            for (String n : numberArray) {
+                int num = Integer.parseInt(n);
+                sum += num;
+            }
+        }
+
+        return sum;
     }
 }
