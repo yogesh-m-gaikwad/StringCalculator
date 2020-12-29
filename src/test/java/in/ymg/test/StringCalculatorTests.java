@@ -59,14 +59,14 @@ public class StringCalculatorTests {
     }
 
     @Test
-    @DisplayName("string with two numbers having newline in between '5,\\n7' returns correct sum = 12")
+    @DisplayName("string with two numbers having newline in between '5\\n7' returns correct sum = 12")
     void twoIntegersWithNewLineInBetweenToReturnSumTest() {
-        assertEquals(12, calculator.add("5\n,7"), "String '5,\\n7'  should return 12");
+        assertEquals(12, calculator.add("5\n7"), "String '5\\n7' should return 12");
     }
 
     @Test
-    @DisplayName("string with two numbers with multiple newlines in between '5,\\n7\\n9,2' returns correct sum = 23")
+    @DisplayName("string with two numbers with newlines in between '5\\n7\\n9,2' returns correct sum = 23")
     void moreThanTwoIntegersWithNewLineInBetweenToReturnSumTest() {
-        assertEquals(23, calculator.add("5,\n7\n9,2"), "String '5,\\n7\\n9,2'  should return 23");
+        assertEquals(23, calculator.add("5\n7\n9,2"), "String '5\\n7\\n9,2' should return 23");
     }
 }
