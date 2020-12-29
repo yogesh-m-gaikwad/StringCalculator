@@ -9,12 +9,12 @@ package in.ymg.app;
  *     c.add("3,6");
  * </pre></blockquote><p>
  *
- * @author  Yogesh Gaikwad
+ * @author Yogesh Gaikwad
  */
 public class StringCalculator {
-    public int add(String numbers){
+    public int add(String numbers) {
         int sum = 0;
-        if( numbers != null && !numbers.isEmpty()) {
+        if (numbers != null && !numbers.isEmpty()) {
             String[] numberArray = numbers.split(",");
             for (String n : numberArray) {
                 int num = Integer.parseInt(n);
